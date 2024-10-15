@@ -35,6 +35,9 @@ class ProductFactory extends Factory
             'category_id' => Category::factory(),
             'brand_id' => Brand::factory(),
         ];
+
+        //https://i.ibb.co.com/S5bHHhH/shoespng-parspng-com.png
+        // <a href="https://ibb.co.com/mJF9V7t"><img src="https://i.ibb.co.com/JnFvwP2/Samba-OG-Shoes-Kids-White-IE1334-01-standard.webp" alt="Samba-OG-Shoes-Kids-White-IE1334-01-standard" border="0"></a>
     }
     
 }
