@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Brand;
 
 
 class DatabaseSeeder extends Seeder
@@ -19,9 +20,15 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CategorySeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            BrandSeeder::class
         ]);
 
-        Product::factory(10)->create();
+        // Product::factory(10)->create();
+
+        Product::factory(10)->recycle([
+            Category::all(),
+            Brand::all()
+        ])->create();
     }
 }
