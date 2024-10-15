@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 
+use App\Http\Controllers\ProductController;
+
 
 use App\Models\Product;
 use App\Models\Brand;
@@ -16,3 +18,7 @@ Route::get('/', function () {
     $products = Product::all();
     return view('home', ['products' => $products]);
 });
+
+
+
+route::resource('products', ProductController::class);

@@ -26,9 +26,19 @@ class DatabaseSeeder extends Seeder
 
         // Product::factory(10)->create();
 
-        Product::factory(20)->recycle([
+        Product::factory(5)->recycle([
             Category::all(),
             Brand::all()
         ])->create();
+
+        Product::create([
+            'product_name' => 'Product 1',
+            'brand_id' => 1,
+            'category_id' => 1,
+            'price' => 100,
+            'stock_quantity' => 10,
+            'slug' => 'product-1',
+            'description' => 'Product 1 description',
+        ]);
     }
 }
