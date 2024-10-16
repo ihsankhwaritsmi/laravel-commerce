@@ -14,6 +14,6 @@ Route::get('/', function () {
     return redirect('/product');
 });
 Route::get('/product', [ProductController::class, 'index'])->name('home');
-Route::get('/product/edit', [ProductController::class, 'edit'])->name('product.edit');
+Route::post('/product/edit', [ProductController::class, 'edit'])->name('product.edit');
 
 route::post('/product/store', [ProductController::class, 'store'])->name('product.store');

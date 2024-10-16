@@ -9,13 +9,30 @@ use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     public function index() {
-        $products = Product::all();
+        $products = Product::latest()->get();
         return view('home', ['products' => $products]);
     }
 
-    public function edit() {
-        // $product = Product::findOrFail($id); // Ambil sepatu berdasarkan ID
-        return view('edit-item'); // Tampilkan view edit dengan data sepatu
+    public function edit(Request $request) {
+        // dd($request->all());
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'product_name' => 'required|string|max:255',
+            'brand_id' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'price' => 'required|numeric|min:0',
+            'description' => 'nullable|string',
+        ]);
+    
+        $product = Product::findOrFail($request->product_id);
+        $product->product_name = $request->product_name;
+        $product->brand_id = $request->brand_id;
+        $product->category_id = $request->category_id;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->save();
+    
+        return redirect('/product')->with('success', 'Product updated successfully.');
     }
     
     // Display a listing of the products
@@ -25,8 +42,8 @@ class ProductController extends Controller
         // Validate the incoming request
         $request->validate([
             'pro_name' => 'required|string|max:255',
-            'brand_id' => 'required|exists:brands,id', // Ensure this ID exists in the brands table
-            'category_id' => 'required|exists:categories,id', // Ensure this ID exists in the categories table
+            'brand_id' => 'required|exists:brands,id', 
+            'category_id' => 'required|exists:categories,id',
             'price' => 'required|numeric|min:0',
             'description' => 'nullable|string',
         ]);
@@ -39,7 +56,6 @@ class ProductController extends Controller
             'stock_quantity' => 10,
             'slug' => Str::slug($request->input('pro_name')),
             'description' => $request->input('description'),
-            'product_name' => $request->input('pro_name'),
             'product_name' => $request->input('pro_name'),
             
         ]);
