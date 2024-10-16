@@ -10,15 +10,10 @@ use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Category;
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-
 Route::get('/', function () {
-    $products = Product::all();
-    return view('home', ['products' => $products]);
+    return redirect('/product');
 });
+Route::get('/product', [ProductController::class, 'index'])->name('home');
+Route::get('/product/edit', [ProductController::class, 'edit'])->name('product.edit');
 
-
-
-route::resource('products', ProductController::class);
+route::post('/product/store', [ProductController::class, 'store'])->name('product.store');

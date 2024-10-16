@@ -3,7 +3,7 @@
 | Name                         | NRP        | Kelas    |
 | ---------------------------- | ---------- | -------- |
 | Muhammad Ihsan Al Khwaritsmi | 5025221211 | PBKK (D) |
-| Arundaya                     | 5025221206 | PBKK (D) |
+| Arundaya Pratama Nurhasan    | 5025221206 | PBKK (D) |
 
 ## Desain database
 
