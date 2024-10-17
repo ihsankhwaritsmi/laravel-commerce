@@ -14,4 +14,4 @@ Konsep web yang kami buat merupakan web tentang manajemen toko sepatu pada sebua
 3. categories
 
 ## Youtube
-[klik disini](https://youtu.be/T1TR-RGf2Pw?si=1igynLXd9HbSCsFL)
+[klik disini](https://youtu.be/NfTvuqDsngY)
