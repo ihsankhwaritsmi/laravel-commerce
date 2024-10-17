@@ -15,5 +15,5 @@ Route::get('/', function () {
 });
 Route::get('/product', [ProductController::class, 'index'])->name('home');
 Route::post('/product/edit', [ProductController::class, 'edit'])->name('product.edit');
-
+Route::post('/product/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
 route::post('/product/store', [ProductController::class, 'store'])->name('product.store');

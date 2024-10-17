@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const updateButtons = document.querySelectorAll('[data-modal-toggle="updateProductModal"]');
     const productIdInput = document.getElementById('modal_product_id');
+    const productDeleteId = document.getElementById('modal_delete_id');
     const productNameInput = document.getElementById('modal_product_name');
     const productBrandInput = document.getElementById('modal_product_brand');
     const productPriceInput = document.getElementById('modal_product_price');
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Isi modal dengan data produk
             productIdInput.value = productId;
+            productDeleteId.value = productId;
             productNameInput.value = productName;
             productBrandInput.value = productBrand;
             productPriceInput.value = productPrice;
